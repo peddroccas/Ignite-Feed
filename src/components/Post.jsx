@@ -22,7 +22,7 @@ export function Post({ author, publishedAt, content }) {
 
     function handleCreateNewComment() {
         event.preventDefault()
-        setComments(...comments, comments.length + 1)
+        setComments([...comments, comments.length + 1])
     }
 
     return (
@@ -60,10 +60,9 @@ export function Post({ author, publishedAt, content }) {
 
             <div className={styles.commentList}>
                 {comments.map(comment => {
-                   return <Comment />
+                   return <Comment />;
                 })}
             </div>
         </article>
     )
 }
-
