@@ -1,12 +1,16 @@
-import { Post } from "./components/Post"
-import { Header } from "./components/Header"
-import { Sidebar } from "./components/Sidebar"
+import { Post, PostProps } from "./components/Post.tsx"
+import { Header } from "./components/Header.tsx"
+import { Sidebar } from "./components/Sidebar.tsx"
 
 import './global.css'
 
 import styles from './App.module.css'
 
-const posts = [
+interface Posts extends PostProps {
+  id: number
+}
+
+const posts: Posts[] = [
   {
     id: 1,
     author: {
@@ -47,12 +51,12 @@ export function App() {
         <main>
           {posts.map(post => {
             return (
-            <Post
-              key = {post.id}
-              author = {post.author}
-              content = {post.content}
-              publishedAt = {post.publishedAt}
-            />
+              <Post
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
             )
           })}
         </main>
